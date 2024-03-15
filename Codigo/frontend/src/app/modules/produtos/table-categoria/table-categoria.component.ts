@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { categoria_ProdutoElement } from '../produtos.component';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-table-categoria',
@@ -8,4 +10,6 @@ import { Component } from '@angular/core';
 export class TableCategoriaComponent {
   displayedColumns: string[] = ['id', 'nome'];
   columnAction: string = 'Actions';
+  categorias: categoria_ProdutoElement[] = [];
+  dataSource!: MatTableDataSource<categoria_ProdutoElement>;
 }

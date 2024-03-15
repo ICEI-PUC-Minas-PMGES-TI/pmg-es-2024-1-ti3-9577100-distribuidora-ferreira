@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProdutoElement } from '../produtos.component';
 
 @Component({
   selector: 'app-table-produto',
@@ -8,4 +9,5 @@ import { Component } from '@angular/core';
 export class TableProdutoComponent {
   displayedColumns: string[] = ['id', 'nome', 'preco', 'categoria_produto'];
   columnAction: string = 'Actions';
+  produtos: ProdutoElement[] = [];
 }
