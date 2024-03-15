@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProdutosComponent } from './produtos/produtos.component';
+import { ProdutosComponent } from './produtos.component';
 import { MaterialModule } from 'src/app/material-module';
 
 
