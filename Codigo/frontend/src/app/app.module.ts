@@ -5,19 +5,19 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material-module';
-import { ProdutosComponent } from './modules/produtos/produtos/produtos.component';
+import { ProdutosModule } from './modules/produtos/produtos.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProdutosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    ProdutosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
