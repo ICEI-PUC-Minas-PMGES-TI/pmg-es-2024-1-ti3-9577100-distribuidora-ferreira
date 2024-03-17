@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.distribuidoraferreira.backend.dtos.ProdutoRequest;
-import com.distribuidoraferreira.backend.dtos.ProdutoResponse;
 import com.distribuidoraferreira.backend.services.ProdutoService;
 
 @RestController
