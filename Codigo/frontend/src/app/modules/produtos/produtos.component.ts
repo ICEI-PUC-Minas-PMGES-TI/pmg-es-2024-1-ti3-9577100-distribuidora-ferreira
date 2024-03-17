@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-export interface categoria_ProdutoElement {
+export interface categoria_produto {
   id: number,
   nome: string
 }
@@ -15,7 +15,16 @@ export interface ProdutoElement {
   img: string,
   preco: number,
   subTotal: number,
-  categoria_Produto: categoria_ProdutoElement
+  categoria: categoria_produto
+}
+
+export interface ProdutoElementRequest {
+  id: number,
+  nome: string,
+  quantidade?: number,
+  preco: number,
+  img: string,
+  categoria_Produto: string
 }
 
 @Component({

@@ -14,28 +14,35 @@ export class ProdutoService {
 
   apiUrl = environment.apiUrl;
 
-  cadastrarNovoProduto(produto: ProdutoElement): Observable<ProdutoElement> {
-
-    return this.http.post<ProdutoElement>(this.apiUrl + '/produto', {
-      nome: produto.nome,
-      categoria_Produto: produto.categoria_Produto,
-      preco: produto.preco,
-      img: produto.img,
-      codBarras: produto.codBarras,
-      quantidadeEstoque: produto.quantidadeEstoque
-    }, {
+  getProdutos(): Observable<ProdutoElement[]> {
+    return this.http.get<ProdutoElement[]>(this.apiUrl + '/produto', {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
+        'Content-Type': 'application/json'
       })
     });
   }
 
-  atualizarProduto(produto: ProdutoElement): Observable<ProdutoElement> {
+  cadastrarNovoProduto(produto: ProdutoElement): Observable<ProdutoElement> {
+
+    return this.http.post<ProdutoElement>(this.apiUrl + '/produto', {
+      codBarras: produto.codBarras,
+      nome: produto.nome,
+      preco: produto.preco,
+      estoque: produto.quantidadeEstoque,
+      img: produto.img,
+      categoria: produto.categoria
+    }, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+
+  /*atualizarProduto(produto: ProdutoElement): Observable<ProdutoElement> {
     return this.http.put<ProdutoElement>(this.apiUrl + '/produto', {
       id: produto.id,
       nome: produto.nome,
-      categoria_Produto: produto.categoria_Produto,
+      categoria_Produto: produto.categoria,
       preco: produto.preco,
       img: produto.img,
       codBarras: produto.codBarras
@@ -80,17 +87,16 @@ export class ProdutoService {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })
     });
-  }
+  }*/
 
   getProdutoById(id: number): Observable<ProdutoElement> {
     return this.http.get<ProdutoElement>(this.apiUrl + '/produto/' + id, {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
+        'Content-Type': 'application/json'
       })
     });
   }
-
+  /*
   getProdutoByCodBarras(codBarras: string): Observable<ProdutoElement> {
     return this.http.get<ProdutoElement>(this.apiUrl + '/produto/cod/' + codBarras, {
       headers: new HttpHeaders({
@@ -124,7 +130,7 @@ export class ProdutoService {
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })
     });
-  }
+  }*/
 
 
 }

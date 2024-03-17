@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { categoria_ProdutoElement } from '../produtos.component';
+import { Component, OnInit } from '@angular/core';
+import { categoria_produto } from '../produtos.component';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -7,9 +7,10 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './table-categoria.component.html',
   styleUrls: ['./table-categoria.component.scss']
 })
-export class TableCategoriaComponent {
+export class TableCategoriaComponent{
   displayedColumns: string[] = ['id', 'nome'];
   columnAction: string = 'Actions';
-  categorias: categoria_ProdutoElement[] = [];
-  dataSource!: MatTableDataSource<categoria_ProdutoElement>;
+  categorias: categoria_produto[] = [];
+  dataSource!: MatTableDataSource<categoria_produto>;
+
 }
