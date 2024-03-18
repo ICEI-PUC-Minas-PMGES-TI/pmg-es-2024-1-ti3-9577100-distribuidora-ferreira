@@ -4,6 +4,7 @@ import { ProdutosComponent } from './produtos.component';
 import { MaterialModule } from 'src/app/material-module';
 import { TableProdutoComponent } from './table-produto/table-produto.component';
 import { TableCategoriaComponent } from './table-categoria/table-categoria.component';
+import { DialogNovoProdutoComponent } from './dialog-novo-produto/dialog-novo-produto.component';
 
 
 
@@ -11,7 +12,8 @@ import { TableCategoriaComponent } from './table-categoria/table-categoria.compo
   declarations: [
     ProdutosComponent,
     TableProdutoComponent,
-    TableCategoriaComponent
+    TableCategoriaComponent,
+    DialogNovoProdutoComponent
   ],
   imports: [
     CommonModule,
