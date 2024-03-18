@@ -4,7 +4,7 @@ import { ContentComponent } from './content.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { MaterialModule } from 'src/app/material-module';
 import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { ContentRoutingModule } from './content-routing.module';
 
 
 
@@ -17,7 +17,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    ContentRoutingModule
   ]
 })
 export class ContentModule { }
