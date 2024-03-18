@@ -8,7 +8,7 @@
 <mat-card class="content">
     <mat-card-content>
         <mat-dialog-content class="dialogContainer">
-            <form formGroup="form" class="formContainer">
+            <form [formGroup]="form" class="formContainer">
 
                 <div class="file-uploadedContent">
                     <div class="file-uploaded" *ngIf="existsPhoto">

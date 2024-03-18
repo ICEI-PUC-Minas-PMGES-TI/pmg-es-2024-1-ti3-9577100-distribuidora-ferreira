@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatBadgeModule } from '@angular/material/badge';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     exports: [
@@ -29,7 +30,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
         MatListModule,
         MatSnackBarModule,
         MatBadgeModule,
-        MatSidenavModule
+        MatSidenavModule,
+        ReactiveFormsModule
     ]
 })
 

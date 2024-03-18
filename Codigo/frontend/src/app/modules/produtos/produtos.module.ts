@@ -7,7 +7,7 @@ import { TableCategoriaComponent } from './table-categoria/table-categoria.compo
 import { DialogNovoProdutoComponent } from './dialog-novo-produto/dialog-novo-produto.component';
 import { SharedModule } from '../shared/shared.module';
 import { DialogNovaCategoriaComponent } from './dialog-nova-categoria/dialog-nova-categoria.component';
-
+import { ProdutosRoutingModule } from './produtos-routing.module';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import { DialogNovaCategoriaComponent } from './dialog-nova-categoria/dialog-nov
   imports: [
     CommonModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    ProdutosRoutingModule
   ]
 })
 export class ProdutosModule { }
