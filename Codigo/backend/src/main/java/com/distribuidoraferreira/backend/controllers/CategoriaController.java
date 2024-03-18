@@ -1,5 +1,7 @@
 package com.distribuidoraferreira.backend.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.distribuidoraferreira.backend.dtos.CategoriaRequest;
 import com.distribuidoraferreira.backend.services.CategoriaService;
+import com.distribuidoraferreira.backend.dtos.CategoriaResponse;
+import com.distribuidoraferreira.backend.models.Categoria;
 
 @RestController
 @RequestMapping("/categorias")
@@ -21,6 +25,11 @@ public class CategoriaController {
     @PostMapping
     public void addCategoria(@RequestBody CategoriaRequest categoriaRequest) {
         categoriaService.addCategoria(categoriaRequest);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CategoriaResponse>> getCategorias() {
+        return ResponseEntity.ok().body(categoriaService.getCategorias());
     }
 
     @GetMapping("/{id}")
