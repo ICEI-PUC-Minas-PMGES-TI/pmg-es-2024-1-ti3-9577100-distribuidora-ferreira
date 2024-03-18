@@ -13,7 +13,7 @@ export class CategoriaService {
 
 
   obterCategorias(): Observable<any> {
-    return this.http.get('http://localhost:8080/categoria', {
+    return this.http.get('http://localhost:8080/categorias', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
@@ -21,7 +21,7 @@ export class CategoriaService {
   }
 
   verificarCategoriaExistente(nome: string) {
-    return this.http.get('http://localhost:8080/categoria/nome/' + nome, {
+    return this.http.get('http://localhost:8080/categorias/nome/' + nome, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
@@ -29,7 +29,7 @@ export class CategoriaService {
   }
 
   cadastrarCategoria(categoria: ProdutoElement) {
-    return this.http.post('http://localhost:8080/categoria', categoria, {
+    return this.http.post('http://localhost:8080/categorias', categoria, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
@@ -37,7 +37,7 @@ export class CategoriaService {
   }
 
   deleteCategoria(id: number) {
-    return this.http.delete('http://localhost:8080/categoria/' + id, {
+    return this.http.delete('http://localhost:8080/categorias/' + id, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
