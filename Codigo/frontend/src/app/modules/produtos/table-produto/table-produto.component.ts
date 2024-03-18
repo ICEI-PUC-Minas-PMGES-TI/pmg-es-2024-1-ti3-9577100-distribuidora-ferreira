@@ -11,8 +11,9 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./table-produto.component.scss']
 })
 export class TableProdutoComponent {
-  displayedColumns: string[] = ['id', 'nome', 'preco', 'categoria_produto'];
+  displayedColumns: string[] = ['id', 'nome', 'preco', 'categoria_Produto'];
   columnAction: string = 'Actions';
+  columnsDois!: string[];
   produtos: ProdutoElement[] = [];
   produtosRequest: ProdutoElementRequest[] = [];
   dataSource!: MatTableDataSource<ProdutoElementRequest>;
@@ -23,11 +24,8 @@ export class TableProdutoComponent {
 
   get displayedColumnsWithImg() {
     let columns = [...this.displayedColumns];
-    if (!columns.includes('img') && !columns.includes('actions')) {
-      columns.splice(1, 0, 'img');
-      columns.push('actions');
-    }
-    return columns;
+    columns.splice(1, 0, 'img');
+    return [...columns, 'actions'];
   }
 
   updateTable() {
@@ -55,5 +53,7 @@ export class TableProdutoComponent {
 
   ngOnInit(): void {
     this.updateTable();
+
+    console.log(this.displayedColumnsWithImg)
   }
 }

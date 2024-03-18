@@ -4,7 +4,9 @@ import { ContentComponent } from './content.component';
 import { ProdutosComponent } from '../produtos/produtos.component';
 
 const routes: Routes = [
-  { path: "", component: ContentComponent},
+  { path: "", component: ContentComponent, children: [
+    {path: "produtos", loadChildren: () => import('../produtos/produtos.module').then(module => module.ProdutosModule)}
+  ]},
 ];
 
 @NgModule({

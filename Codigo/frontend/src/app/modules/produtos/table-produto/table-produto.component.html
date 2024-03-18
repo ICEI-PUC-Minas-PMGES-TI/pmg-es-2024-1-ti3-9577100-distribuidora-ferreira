@@ -1,8 +1,10 @@
-<mat-toolbar>
-    Tabela de Produtos
-</mat-toolbar>
 <mat-card>
     <mat-card-content>
+        <mat-form-field>
+            <mat-label>Buscar Produto</mat-label>
+            <input matInput placeholder="Pesquisar" #input>
+        </mat-form-field>
+
         <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
             <ng-container matColumnDef="img">
@@ -29,10 +31,10 @@
                 <th mat-header-cell *matHeaderCellDef>{{columnAction.toUpperCase()}}</th>
                 <td mat-cell class="actionsButtons" *matCellDef="let produto">
                     <div style="display:flex;">
-                        <button class="editActionsProduto">
+                        <button class="editActionsProduto" >
                             <mat-icon>edit</mat-icon>
                         </button>
-                        <button class="deleteActionsProdutos">
+                        <button class="deleteActionsProdutos" >
                             <mat-icon>delete</mat-icon>
                         </button>
                     </div>
@@ -40,8 +42,10 @@
             </ng-container>
 
             <!-- Definição de linhas e colunas -->
+
             <tr mat-header-row *matHeaderRowDef="displayedColumnsWithImg"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumnsWithImg"></tr>
+            
         </table>
 
         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Selecione a página">

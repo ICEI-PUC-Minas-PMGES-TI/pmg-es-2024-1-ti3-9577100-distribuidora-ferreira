@@ -30,7 +30,7 @@ export class ProdutoService {
       preco: produto.preco,
       estoque: produto.quantidadeEstoque,
       img: produto.img,
-      categoria: produto.categoria
+      categoria_Produto: produto.categoria
     }, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
