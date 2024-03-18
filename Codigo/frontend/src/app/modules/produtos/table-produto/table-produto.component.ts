@@ -21,6 +21,14 @@ export class TableProdutoComponent {
   @ViewChild(MatSort) sort!: MatSort;
   constructor(private produtoService: ProdutoService) {}
 
+  get displayedColumnsWithImg() {
+    let columns = [...this.displayedColumns];
+    if (!columns.includes('img')) {
+      columns.splice(1, 0, 'img');
+    }
+    return columns;
+  }
+
   updateTable() {
     this.produtos = [];
     this.produtoService.getProdutos().subscribe(
@@ -30,10 +38,10 @@ export class TableProdutoComponent {
           return {
             id: produto.id,
             nome: produto.nome,
+            quantidade: produto.quantidade,
             preco: produto.preco,
-            subTotal: produto.subTotal,
             img: produto.img,
-            categoria_Produto: produto.categoria.nome.toUpperCase()
+            categoria: produto.categoria.nome.toUpperCase()
           };
         });
         this.dataSource = new MatTableDataSource<ProdutoElementRequest>(this.produtosRequest);

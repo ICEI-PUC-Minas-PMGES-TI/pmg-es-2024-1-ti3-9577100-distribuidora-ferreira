@@ -1,6 +1,8 @@
 package com.distribuidoraferreira.backend.services;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +30,18 @@ public class ProdutoServiceImpl implements ProdutoService {
     }
 
     @Override
-    @ResponseStatus(HttpStatus.OK)
+    public List<ProdutoResponse> getProdutos() {
+        List<Produto> produtos = produtoRepository.findAll();
+
+        List<ProdutoResponse> produtosResponse = 
+        produtos.stream()
+        .map(ProdutoMapper::toResponse)
+        .collect(Collectors.toList());
+
+        return produtosResponse;
+    }
+
+    @Override
     public ProdutoResponse getProdutoById(Long id) {
         Optional<Produto> produto = produtoRepository.findById(id);
 

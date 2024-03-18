@@ -15,7 +15,7 @@ export class ProdutoService {
   apiUrl = environment.apiUrl;
 
   getProdutos(): Observable<ProdutoElement[]> {
-    return this.http.get<ProdutoElement[]>(this.apiUrl + '/produto', {
+    return this.http.get<ProdutoElement[]>(this.apiUrl + '/produtos', {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
@@ -24,7 +24,7 @@ export class ProdutoService {
 
   cadastrarNovoProduto(produto: ProdutoElement): Observable<ProdutoElement> {
 
-    return this.http.post<ProdutoElement>(this.apiUrl + '/produto', {
+    return this.http.post<ProdutoElement>(this.apiUrl + '/produtos', {
       codBarras: produto.codBarras,
       nome: produto.nome,
       preco: produto.preco,
@@ -39,7 +39,7 @@ export class ProdutoService {
   }
 
   /*atualizarProduto(produto: ProdutoElement): Observable<ProdutoElement> {
-    return this.http.put<ProdutoElement>(this.apiUrl + '/produto', {
+    return this.http.put<ProdutoElement>(this.apiUrl + '/produtos', {
       id: produto.id,
       nome: produto.nome,
       categoria_Produto: produto.categoria,
@@ -109,15 +109,6 @@ export class ProdutoService {
   deleteProduto(id: number): Observable<ProdutoElement> {
     return this.http.delete<ProdutoElement>(this.apiUrl + '/produto/' + id, {
       headers: new HttpHeaders({
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    });
-  }
-
-  getProdutos(): Observable<ProdutoElement[]> {
-    return this.http.get<ProdutoElement[]>(this.apiUrl + '/produto', {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })
     });

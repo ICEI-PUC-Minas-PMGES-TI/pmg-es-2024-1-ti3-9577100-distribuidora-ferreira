@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material-module';
 import { ProdutosModule } from './modules/produtos/produtos.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProdutosModule } from './modules/produtos/produtos.module';
     BrowserAnimationsModule,
     RouterModule,
     MaterialModule,
-    ProdutosModule
+    ProdutosModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,7 +24,7 @@ export interface ProdutoElementRequest {
   quantidade?: number,
   preco: number,
   img: string,
-  categoria_Produto: string
+  categoria: string
 }
 
 @Component({
