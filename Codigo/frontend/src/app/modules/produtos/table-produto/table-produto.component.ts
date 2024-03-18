@@ -23,7 +23,7 @@ export class TableProdutoComponent {
 
   get displayedColumnsWithImg() {
     let columns = [...this.displayedColumns];
-    if (!columns.includes('img')) {
+    if (columns.includes('img')) {
       columns.splice(1, 0, 'img');
     }
     return columns;

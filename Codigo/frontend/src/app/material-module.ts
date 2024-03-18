@@ -11,6 +11,8 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatBadgeModule } from '@angular/material/badge';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
     exports: [
@@ -25,7 +27,9 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
         MatSelectModule,
         MatMenuModule,
         MatListModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatBadgeModule,
+        MatSidenavModule
     ]
 })
 
