@@ -39,4 +39,14 @@ public class ProdutoController {
     public ResponseEntity<?> getProdutoById(@PathVariable Long id) {
         return ResponseEntity.ok().body(produtoService.getProdutoById(id));
     }
+
+    @GetMapping("/nome/{nome}")
+    public ResponseEntity<?> getProdutoByNome(@PathVariable String nome) {
+        return ResponseEntity.ok().body(produtoService.getProdutoByNome(nome));
+    }
+
+    @GetMapping("/cod/{codBarras}")
+    public ResponseEntity<?> getProdutoByCodBarras(@PathVariable String codBarras) {
+        return ResponseEntity.ok().body(produtoService.getProdutoByCodBarras(codBarras));
+    }
 }

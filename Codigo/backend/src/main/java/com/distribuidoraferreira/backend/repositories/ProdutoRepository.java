@@ -6,4 +6,6 @@ import com.distribuidoraferreira.backend.models.Produto;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Long>{
     Produto findByNome(String nome);
+    
+    Produto findByCodBarras(String codBarras);
 }

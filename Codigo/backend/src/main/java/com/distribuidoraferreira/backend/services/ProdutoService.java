@@ -10,5 +10,9 @@ public interface ProdutoService {
 
     ProdutoResponse getProdutoById(Long id);
 
+    ProdutoResponse getProdutoByNome(String nome);
+
+    ProdutoResponse getProdutoByCodBarras(String codBarras);
+
     List<ProdutoResponse> getProdutos();
 }

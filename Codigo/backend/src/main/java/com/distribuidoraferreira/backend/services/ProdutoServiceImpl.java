@@ -49,5 +49,24 @@ public class ProdutoServiceImpl implements ProdutoService {
 
         return response;
     }
+
+    @Override
+    public ProdutoResponse getProdutoByNome(String nome) {
+        Produto entity = produtoRepository.findByNome(nome);
+
+        ProdutoResponse response = ProdutoMapper.toResponse(entity);
+
+        return response;
+    }
+
+    @Override
+    public ProdutoResponse getProdutoByCodBarras(String codBarras) {
+        Produto entity = produtoRepository.findByCodBarras(codBarras);
+
+        ProdutoResponse response = ProdutoMapper.toResponse(entity);
+
+        return response;
+    }
+
     // TODO Criar exceptions e fazer response messages melhores
 }

@@ -19,6 +19,9 @@ public class ProdutoResponse {
     @JsonProperty("nome")
     private String nome;
 
+    @JsonProperty("codBarras")
+    private String codBarras;
+
     @JsonProperty("preco")
     private Double preco;
 

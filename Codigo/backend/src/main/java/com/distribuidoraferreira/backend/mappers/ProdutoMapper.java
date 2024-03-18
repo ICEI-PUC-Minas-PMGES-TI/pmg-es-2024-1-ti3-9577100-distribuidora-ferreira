@@ -29,6 +29,7 @@ public class ProdutoMapper {
 
         response.setId(produto.getId());
         response.setNome(produto.getNome());
+        response.setCodBarras(produto.getCodBarras());
         response.setPreco(produto.getPreco());
         response.setQuantidadeEstoque(produto.getQuantidadeEstoque());
         response.setImg(produto.getImg());
