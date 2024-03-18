@@ -5,6 +5,8 @@ import { MaterialModule } from 'src/app/material-module';
 import { TableProdutoComponent } from './table-produto/table-produto.component';
 import { TableCategoriaComponent } from './table-categoria/table-categoria.component';
 import { DialogNovoProdutoComponent } from './dialog-novo-produto/dialog-novo-produto.component';
+import { SharedModule } from '../shared/shared.module';
+import { DialogNovaCategoriaComponent } from './dialog-nova-categoria/dialog-nova-categoria.component';
 
 
 
@@ -13,11 +15,13 @@ import { DialogNovoProdutoComponent } from './dialog-novo-produto/dialog-novo-pr
     ProdutosComponent,
     TableProdutoComponent,
     TableCategoriaComponent,
-    DialogNovoProdutoComponent
+    DialogNovoProdutoComponent,
+    DialogNovaCategoriaComponent
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class ProdutosModule { }

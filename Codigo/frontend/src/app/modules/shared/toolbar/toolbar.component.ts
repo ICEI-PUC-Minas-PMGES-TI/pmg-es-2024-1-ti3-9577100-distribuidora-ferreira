@@ -2,6 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatMenu } from '@angular/material/menu';
+import { DialogNovoProdutoComponent } from '../../produtos/dialog-novo-produto/dialog-novo-produto.component';
 
 @Component({
   selector: 'app-toolbar',

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-//import { ProdutoAPIResponse, ProdutoFileIdResponse } from 'src/app/modules/produtos/produtos.component';
+import { ProdutoFileIdResponse } from 'src/app/modules/produtos/produtos.component';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +34,36 @@ export class ProdutoService {
     }, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
+      })
+    });
+  }
+
+  salvarImagemProduto(fotoProduto: File): Observable<ProdutoFileIdResponse> {
+    let endpoint = "http://localhost:8080/produto/upload";
+    // Crie um objeto FormData e adicione os campos necessários
+    const formData = new FormData();
+    formData.append('img', fotoProduto);
+
+    // Faça a requisição usando o HttpClient
+    return this.http.post<ProdutoFileIdResponse>(endpoint, formData, {
+      headers: new HttpHeaders({
+        'Content-Type': 'multipart/form-data'
+      })
+    });
+  }
+
+  getProdutoByNome(nome: string): Observable<boolean> {
+    return this.http.get<boolean>(this.apiUrl + '/produto/nome/' + nome, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    });
+  }
+
+  getProdutoByCodBarras(codBarras: string): Observable<ProdutoElement> {
+    return this.http.get<ProdutoElement>(this.apiUrl + '/produto/cod/' + codBarras, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
       })
     });
   }
@@ -74,20 +104,6 @@ export class ProdutoService {
       })
     });
   }
-
-  salvarImagemProduto(fotoProduto: File): Observable<ProdutoFileIdResponse> {
-    let endpoint = "http://localhost:8080/produto/upload";
-    // Crie um objeto FormData e adicione os campos necessários
-    const formData = new FormData();
-    formData.append('img', fotoProduto);
-
-    // Faça a requisição usando o HttpClient
-    return this.http.post<ProdutoFileIdResponse>(endpoint, formData, {
-      headers: new HttpHeaders({
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    });
-  }*/
 
   getProdutoById(id: number): Observable<ProdutoElement> {
     return this.http.get<ProdutoElement>(this.apiUrl + '/produto/' + id, {

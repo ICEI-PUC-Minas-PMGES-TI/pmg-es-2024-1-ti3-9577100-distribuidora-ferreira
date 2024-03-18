@@ -5,6 +5,12 @@ import { MatTabsModule} from "@angular/material/tabs";
 import { MatIconModule } from "@angular/material/icon";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatTableModule } from "@angular/material/table";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatSelectModule } from "@angular/material/select";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatListModule } from '@angular/material/list';
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
     exports: [
@@ -13,7 +19,13 @@ import { MatTableModule } from "@angular/material/table";
         MatTabsModule,
         MatIconModule,
         MatPaginatorModule,
-        MatTableModule
+        MatTableModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatMenuModule,
+        MatListModule,
+        MatSnackBarModule
     ]
 })
 
