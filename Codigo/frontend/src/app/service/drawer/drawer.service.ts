@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DrawerService {
   private drawerSubject = new Subject<boolean>();
-  drawerState = this.drawerSubject.asObservable();
-
+  
   private isDrawerOpen: boolean = false;
-
+  
+  drawerState = this.drawerSubject.asObservable();
   constructor() { }
 
   toggleDrawer() {
