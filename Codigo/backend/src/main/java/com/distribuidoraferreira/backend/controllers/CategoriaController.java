@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.distribuidoraferreira.backend.dtos.CategoriaRequest;
 import com.distribuidoraferreira.backend.services.CategoriaService;
 import com.distribuidoraferreira.backend.dtos.CategoriaResponse;
-import com.distribuidoraferreira.backend.models.Categoria;
 
 @RestController
 @RequestMapping("/categorias")
@@ -34,6 +33,6 @@ public class CategoriaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getCategoriaById(@PathVariable Long id) {
-        return ResponseEntity.ok().body(categoriaService.getCategoriaById(id));
+        return ResponseEntity.ok().body("teste");
     }
 }

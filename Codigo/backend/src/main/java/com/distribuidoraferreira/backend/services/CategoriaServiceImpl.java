@@ -2,31 +2,31 @@ package com.distribuidoraferreira.backend.services;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.distribuidoraferreira.backend.dtos.CategoriaRequest;
 import com.distribuidoraferreira.backend.dtos.CategoriaResponse;
-import com.distribuidoraferreira.backend.dtos.ProdutoResponse;
 import com.distribuidoraferreira.backend.mappers.CategoriaMapper;
-import com.distribuidoraferreira.backend.mappers.ProdutoMapper;
 import com.distribuidoraferreira.backend.models.Categoria;
 import com.distribuidoraferreira.backend.repositories.CategoriaRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class CategoriaServiceImpl implements CategoriaService {
 
-    @Autowired
-    CategoriaRepository categoriaRepository;
+    private final CategoriaRepository categoriaRepository;
+
+    private final CategoriaMapper categoriaMapper;
 
     @Override
     @ResponseStatus(HttpStatus.CREATED)
     public void addCategoria(CategoriaRequest categoriaRequest) {
-        Categoria categoria = CategoriaMapper.toEntity(categoriaRequest);
+        Categoria categoria = categoriaMapper.categoriaRequestToCategoria(categoriaRequest);
 
         categoriaRepository.save(categoria);
     }
@@ -36,7 +36,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     public CategoriaResponse getCategoriaById(Long id) {
         Optional<Categoria> categoria = categoriaRepository.findById(id);
 
-        CategoriaResponse response = CategoriaMapper.toResponse(categoria.get());
+        CategoriaResponse response = categoriaMapper.categoriaToCategoriaResponse(categoria.get());
 
         return response;
     }
@@ -46,10 +46,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     public List<CategoriaResponse> getCategorias() {
         List<Categoria> entities = categoriaRepository.findAll();
 
-        List<CategoriaResponse> categoriasResponse = 
-        entities.stream()
-        .map(CategoriaMapper::toResponse)
-        .collect(Collectors.toList());
+        List<CategoriaResponse> categoriasResponse = categoriaMapper.categoriasToCategoriaResponses(entities);
 
         return categoriasResponse;
     }
