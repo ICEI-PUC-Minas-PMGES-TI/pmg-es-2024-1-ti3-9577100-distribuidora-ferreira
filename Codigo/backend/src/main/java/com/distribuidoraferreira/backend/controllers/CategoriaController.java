@@ -33,6 +33,6 @@ public class CategoriaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getCategoriaById(@PathVariable Long id) {
-        return ResponseEntity.ok().body("teste");
+        return ResponseEntity.ok().body(categoriaService.getCategoriaById(id));
     }
 }
