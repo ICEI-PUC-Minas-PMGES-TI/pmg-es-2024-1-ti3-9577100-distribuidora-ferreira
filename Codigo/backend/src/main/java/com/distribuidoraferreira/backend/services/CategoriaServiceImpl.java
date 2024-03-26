@@ -36,9 +36,13 @@ public class CategoriaServiceImpl implements CategoriaService {
     public CategoriaResponse getCategoriaById(Long id) {
         Optional<Categoria> categoria = categoriaRepository.findById(id);
 
-        CategoriaResponse response = categoriaMapper.categoriaToCategoriaResponse(categoria.get());
+        if(categoria.isPresent()) {
+            CategoriaResponse response = categoriaMapper.categoriaToCategoriaResponse(categoria.get());
+            
+            return response;
+        }
 
-        return response;
+        return null;
     }
 
     @Override
