@@ -2,9 +2,7 @@ package com.distribuidoraferreira.backend.services;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -15,16 +13,20 @@ import com.distribuidoraferreira.backend.mappers.ProdutoMapper;
 import com.distribuidoraferreira.backend.models.Produto;
 import com.distribuidoraferreira.backend.repositories.ProdutoRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class ProdutoServiceImpl implements ProdutoService {
 
-    @Autowired
-    ProdutoRepository produtoRepository;
+    private final ProdutoRepository produtoRepository;
+
+    private final ProdutoMapper produtoMapper;
 
     @Override
     @ResponseStatus(HttpStatus.CREATED)
     public void addProduto(ProdutoRequest userRequest) {
-        Produto produto = ProdutoMapper.toEntity(userRequest);
+        Produto produto = produtoMapper.produtoRequestToProduto(userRequest);
 
         produtoRepository.save(produto);
     }
@@ -33,10 +35,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     public List<ProdutoResponse> getProdutos() {
         List<Produto> produtos = produtoRepository.findAll();
 
-        List<ProdutoResponse> produtosResponse = 
-        produtos.stream()
-        .map(ProdutoMapper::toResponse)
-        .collect(Collectors.toList());
+        List<ProdutoResponse> produtosResponse = produtoMapper.produtosToProdutoResponses(produtos);
 
         return produtosResponse;
     }
@@ -45,7 +44,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     public ProdutoResponse getProdutoById(Long id) {
         Optional<Produto> produto = produtoRepository.findById(id);
 
-        ProdutoResponse response = ProdutoMapper.toResponse(produto.get());
+        ProdutoResponse response = produtoMapper.produtoToProdutoResponse(produto.get());
 
         return response;
     }
@@ -54,7 +53,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     public ProdutoResponse getProdutoByNome(String nome) {
         Produto entity = produtoRepository.findByNome(nome);
 
-        ProdutoResponse response = ProdutoMapper.toResponse(entity);
+        ProdutoResponse response = produtoMapper.produtoToProdutoResponse(entity);
 
         return response;
     }
@@ -63,7 +62,7 @@ public class ProdutoServiceImpl implements ProdutoService {
     public ProdutoResponse getProdutoByCodBarras(String codBarras) {
         Produto entity = produtoRepository.findByCodBarras(codBarras);
 
-        ProdutoResponse response = ProdutoMapper.toResponse(entity);
+        ProdutoResponse response = produtoMapper.produtoToProdutoResponse(entity);
 
         return response;
     }

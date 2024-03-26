@@ -1,6 +1,5 @@
 package com.distribuidoraferreira.backend.dtos;
 
-import com.distribuidoraferreira.backend.models.Categoria;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -27,5 +26,5 @@ public class ProdutoRequest {
     private String img;
 
     @JsonProperty("categoria")
-    private Categoria categoria;
+    private CategoriaRequest categoriaRequest;
 }
